@@ -4,7 +4,7 @@ export const getMovieComments = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const comments = await Comment.find({ movieId: id });
+    const comments = await Comment.find({ movieId: id }).populate("userId", "fullName");
 
     if (!comments || comments.length === 0) {
       return res.status(404).json({ message: "Comments not found" });

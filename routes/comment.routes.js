@@ -5,7 +5,7 @@ import { protectRoute } from "../middlewares/protectRoute.js";
 const router = express.Router();
 
 router.get("/:id", getMovieComments);
-router.post("/:id", protectRoute, createComment);
+router.post("/", protectRoute, createComment);
 router.delete("/:id", protectRoute, deleteComment);
 router.patch("/:id", protectRoute, editComment);
 
